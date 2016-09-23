@@ -52,8 +52,14 @@ def largest_contiguous_subsum2(list)
     if el > largest
       largest = el
       prev_sum = el
+      next
     else
-      prev_sum += el
+      if prev_sum < el
+        prev_sum = el
+        next
+      else
+        prev_sum += el
+      end
     end
 
     largest = prev_sum if prev_sum > largest
